@@ -1,97 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=
     , initial-scale=1.0">
-    <title>Document</title>
-
-    <script>
-
-        const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
-
-        const WIN_ROUND_MESSAGE = "You win this round";
-        const LOSE_ROUND_MESSAGE = "You lost this round";
-        const TIE = "It's a tie!";
-
-        function computerPlay() {
-
-            let decision = random(1,3);
-
-            switch(decision) {
-                case 1: return "rock"; break;
-                case 2: return "paper"; break;
-                case 3: return "scisors"; break;
-            }
-
-        }
-
-        function playRound(playerSelection, computerSelection) {
-            if(playerSelection == "rock") {
-                switch(computerSelection) {
-                    case "paper": console.log(LOSE_ROUND_MESSAGE); return LOSE_ROUND_MESSAGE;  break;
-                    case "scisors": console.log(WIN_ROUND_MESSAGE); return WIN_ROUND_MESSAGE;  break;
-                    case "rock":  console.log(TIE); return TIE; break;
-                }
-            } 
-
-            if(playerSelection == "paper") {
-                switch(computerSelection) {
-                    case "paper": console.log(TIE); return TIE; break;
-                    case "rock": console.log(WIN_ROUND_MESSAGE); return WIN_ROUND_MESSAGE;  break;
-                    case "scirsors": console.log(LOSE_ROUND_MESSAGE); return LOSE_ROUND_MESSAGE;
-                }
-            }
-
-            if(playerSelection == "scisors") {
-                switch(computerSelection) {
-                    case "rock": console.log(LOSE_ROUND_MESSAGE); return LOSE_ROUND_MESSAGE; break;
-                    case "scisors": console.log(TIE); return TIE; break;
-                    case "paper": console.log(WIN_ROUND_MESSAGE); return WIN_ROUND_MESSAGE; break;
-                }
-            }
-
-        }
-
-        function game() {
-            let playerScore = 0;
-            let computerScore = 0;
-            
-            for(let i = 1; i <= 5; i++) {
-                const playerSelection = prompt("What is your play?").toLowerCase();
-                const computerSelection = computerPlay();
-
-                let message = playRound(playerSelection, computerSelection);
-
-                if(message == WIN_ROUND_MESSAGE) {
-                    playerScore++;
-                } else if(message == LOSE_ROUND_MESSAGE) {
-                    computerScore++;
-                } else {
-                    playerScore++;
-                    computerScore++;
-                }
-
-            }
-
-            console.log("Player score: " + playerScore + " | Computer score: " + computerScore);
-            
-            if(playerScore > computerScore) {
-                console.log("You win!");
-            } else if(playerScore < computerScore) {
-                console.log("Computer wins!");
-            } else console.log("It's a tie!");
-
-        }
-        
-        game();
-
-
-
-    </script>
+    <title>Rock Paper Scissors</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+
+<h1>Round</h1>
+<h2>0</h2>
+
+<div class="scoring">
+    <div class="left-side">
+
+        <div class="info">
+
+            <div class="score">Your score</div>
+            <div class="player">0</div>
+
+        </div>
+
+        <img class="player-option" src="./assets/Rock.jpg" alt="option">
+    </div>
+
+    <div class="right-side">
+
+        <div class="info">
+
+            <div class="score">Computer's score</div>
+            <div class="computer">0</div>
+
+        </div>
+
+        <img class="computer-option" src="./assets/Rock.jpg" alt="option">
+    </div>
+</div>
+
+<div class="buttons">
+    <input id="rock" class="options" type="image" src="./assets/Rock.jpg" value="Rock" />
+    <input id="paper" class="options" type="image" src="./assets/Paper.jpg" value="Paper" />
+    <input id="scisors" class="options" type="image" src="./assets/Scissors.jpg" value="Scissors" />
+</div>
+
+<footer>
+    <div>Rock Paper Scisors</div>
+</footer>
+
     
 </body>
 </html>
