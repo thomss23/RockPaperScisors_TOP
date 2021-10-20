@@ -19,6 +19,7 @@ function computerPlay() {
 
 }
 
+
 function playRound(playerSelection, computerSelection) {
 
     const playerScoreElement = document.querySelector(".player");
